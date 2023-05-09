@@ -24,7 +24,7 @@
                   <h3 class="card-title">Add New Employee</h3>
               </div>
               <div class="card-body col-12">
-                  <form method="POST" action="">
+                  <form method="POST" action="<?=site_url('Emp/add');?>">
                       <div class="row">
                           <div class="form-group col-sm-6">
                               <label>Department</label>
@@ -47,6 +47,19 @@
                               <label>Whatsapp Number</label>
                               <input type="text" class="form-control" name="txtwnumber"
                                   placeholder="Enter Employee Whatsapp Number" required>
+                          </div>
+                          <div class="form-group col-sm-6">
+                              <label>Role</label>
+                              <select class="form-control select2" name="txtrole" id="txtrole" style="width: 100%;">
+                                  <option>--Select--</option>
+                                  <option value="1">Manager</option>
+                                  <option value="2">Employee</option>
+                              </select>
+                          </div>
+                          <div class="form-group col-sm-6">
+                              <label>Password</label>
+                              <input type="password" class="form-control" name="txtpwd" placeholder="Enter Password"
+                                  required>
                           </div>
                       </div>
                       <button class="btn btn-primary col-sm-3">
@@ -82,46 +95,24 @@
                                       </tr>
                                   </thead>
                                   <tbody>
+                                      <?php
+                                        foreach ($emp_lst as $emp_lst)
+                                        {
+                                        ?>
                                       <tr>
-                                          <td>ABCD</td>
-                                          <td>DEPT1</td>
-                                          <td>emp1@gmail.com</td>
-                                          <td>+91-0123456789</td>
+                                          <td><?=$emp_lst->empName?></td>
+                                          <td><?=$emp_lst->deptName?></td>
+                                          <td><?=$emp_lst->emailId?></td>
+                                          <td><?=$emp_lst->whatsappNumber?></td>
                                           <td>
                                               <button class="btn btn-warning"><i class="fas fa-edit"></i></button>&nbsp
-                                              <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                              <a href="<?=site_url('Emp/delete/');?><?=$emp_lst->userId?>"><button
+                                                      class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
                                           </td>
                                       </tr>
-                                      <tr>
-                                          <td>ABCD</td>
-                                          <td>DEPT1</td>
-                                          <td>emp1@gmail.com</td>
-                                          <td>+91-0123456789</td>
-                                          <td>
-                                              <button class="btn btn-warning"><i class="fas fa-edit"></i></button>&nbsp
-                                              <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>ABCD</td>
-                                          <td>DEPT1</td>
-                                          <td>emp1@gmail.com</td>
-                                          <td>+91-0123456789</td>
-                                          <td>
-                                              <button class="btn btn-warning"><i class="fas fa-edit"></i></button>&nbsp
-                                              <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                          </td>
-                                      </tr>
-                                      <tr>
-                                          <td>ABCD</td>
-                                          <td>DEPT1</td>
-                                          <td>emp1@gmail.com</td>
-                                          <td>+91-0123456789</td>
-                                          <td>
-                                              <button class="btn btn-warning"><i class="fas fa-edit"></i></button>&nbsp
-                                              <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                          </td>
-                                      </tr>
+                                      <?php
+                                      }
+                                      ?>
                                   </tbody>
                               </table>
                           </div>
