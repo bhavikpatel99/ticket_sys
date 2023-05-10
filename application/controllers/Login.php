@@ -42,15 +42,15 @@ class Login extends CI_Controller {
 			$this->load->view('login',$error);
 		}
 		else
-		{	
+		{		
 			if ($u->userStatus==1) 
 			{
-				$this->session->uid=$u->userId;
+				$this->session->uid=$u->empId;
 				$this->session->empName=$u->empName;
 				$this->session->emailId=$u->emailId;
 				$this->session->whatsappNumber=$u->whatsappNumber;
 				$this->session->deptName=$u->deptName;
-			redirect('Home');
+				redirect('Home');
 			}
 			else
 			{
@@ -63,7 +63,7 @@ class Login extends CI_Controller {
 			}
 		}
 	}
-// UserLogout
+	// UserLogout
 	public function logout()
 	{
 		$this->session->sess_destroy();
