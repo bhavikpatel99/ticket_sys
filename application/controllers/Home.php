@@ -12,7 +12,6 @@ class Home extends CI_Controller {
 		else
 		{
 			$data['title'] = 'Welcome to ticket_system';
-			$data['emp_lst'] = $this->Emp_m->get();
 			$this->load->view('template/header',$data);
 			$this->load->view('index');
 			$this->load->view('template/footer');

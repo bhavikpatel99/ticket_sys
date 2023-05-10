@@ -21,6 +21,8 @@ class Emp extends CI_Controller {
 		{
 			$data['title'] = 'ticket_system || Employee';
 			$data['emp_lst'] = $this->Emp_m->get();
+			$id = $this->uri->segment(3);
+			$data['emp_lst_id'] = $this->Emp_m->show_user_id($id);
 			$this->load->view('template/header',$data);
 			$this->load->view('emp/list',$data);
 			$this->load->view('template/footer');
@@ -54,14 +56,14 @@ class Emp extends CI_Controller {
 				'userLevel' => $this->input->post('txtrole'),
 				'password' => md5($this->input->post('txtpwd'))
 			);		
-            $this->Emp_m->insert($data);
+            $this->Emp_m->update($data);
             $msg = $this->session->set_flashdata('success', 'Record added!');
             redirect('Emp',$msg);
 	}
 	// Delete Emp
-	public function delete()
+	public function remove()
 	{
-		    $id = $this->input->post('id');
+		    $id = $this->uri->segment(3);
             $this->Emp_m->delete($id);
             $msg = $this->session->set_flashdata('success', 'Record deleted!');
             redirect('Emp', $msg);
