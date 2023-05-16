@@ -7,7 +7,7 @@ class Home extends CI_Controller {
 	{
 		if(is_null($this->session->uid))
 		{
-			redirect('Login');
+			$this->load->view('Login');
 		}
 		else
 		{

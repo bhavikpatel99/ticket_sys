@@ -20,10 +20,10 @@ class Emp_m extends CI_Model
         return $quary->result();
     }
     // Function to select particular record from table name tbluser.
-    function show_user_id($data){
+    function show_user_id($id){
         $this->db->select('*');
         $this->db->from('tbluser');
-        $this->db->where('userId', $data);
+        $this->db->where('userId', $id);
         $query = $this->db->get();
         $result = $query->result();
         return $result;

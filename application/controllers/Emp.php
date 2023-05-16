@@ -21,7 +21,6 @@ class Emp extends CI_Controller {
 		{
 			$data['title'] = 'ticket_system || Employee';
 			$data['emp_lst'] = $this->Emp_m->get();
-			$id = $this->uri->segment(3);
 			$data['emp_lst_id'] = $this->Emp_m->show_user_id($id);
 			$this->load->view('template/header',$data);
 			$this->load->view('emp/list',$data);
@@ -39,7 +38,7 @@ class Emp extends CI_Controller {
 				'entryBy' => $this->session->empName,
 				'userLevel' => $this->input->post('txtrole'),
 				'password' => md5($this->input->post('txtpwd'))
-			);		
+			);		  
             $this->Emp_m->insert($data);
             $msg = $this->session->set_flashdata('success', 'Record added!');
             redirect('Emp',$msg);
