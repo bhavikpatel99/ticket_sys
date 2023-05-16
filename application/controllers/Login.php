@@ -16,13 +16,9 @@ class Login extends CI_Controller {
 		{
 			$this->load->view('Login');
 		}
-		elseif(!is_null($this->session->uid))
-		{
-			redirect('Home');
-		}
 		else
 		{
-			redirect('Login');
+			redirect('Home');
 		}
 	}
 	// User Login
@@ -30,7 +26,7 @@ class Login extends CI_Controller {
 	{	
 		$cond=array(
 			"emailId"=>$this->input->post("txtemail"),
-			"password"=>md5($this->input->post('txtpwd'))
+			"password"=>$this->input->post('txtpwd')
 		);
 		$u=$this->User_m->getuser($cond);
 		if($u==false)
@@ -45,7 +41,7 @@ class Login extends CI_Controller {
 		{		
 			if ($u->userStatus==1) 
 			{
-				$this->session->uid=$u->empId;
+				$this->session->uid=$u->userId;
 				$this->session->empName=$u->empName;
 				$this->session->emailId=$u->emailId;
 				$this->session->whatsappNumber=$u->whatsappNumber;
