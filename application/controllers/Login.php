@@ -26,7 +26,7 @@ class Login extends CI_Controller {
 	{	
 		$cond=array(
 			"emailId"=>$this->input->post("txtemail"),
-			"password"=>$this->input->post('txtpwd')
+			"password"=>md5($this->input->post('txtpwd'))
 		);
 		$u=$this->User_m->getuser($cond);
 		if($u==false)

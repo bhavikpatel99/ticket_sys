@@ -49,14 +49,6 @@
                                   placeholder="Enter Employee Whatsapp Number" required>
                           </div>
                           <div class="form-group col-sm-6">
-                              <label>Role</label>
-                              <select class="form-control select2" name="txtrole" id="txtrole" style="width: 100%;">
-                                  <option>--Select--</option>
-                                  <option value="1">Manager</option>
-                                  <option value="2">Employee</option>
-                              </select>
-                          </div>
-                          <div class="form-group col-sm-6">
                               <label>Password</label>
                               <input type="password" class="form-control" name="txtpwd" placeholder="Enter Password"
                                   required>
@@ -99,6 +91,8 @@
                                       <?php
                                         foreach ($emp_lst as $emp_lst)
                                         {
+                                            if($emp_lst->userLevel == 1)
+                                            {
                                         ?>
                                       <tr>
                                           <td><?=$emp_lst->empName?></td>
@@ -110,10 +104,6 @@
                                                 if($emp_lst->userLevel == 0)
                                                 {
                                                     echo 'Boss';
-                                                }
-                                                elseif($emp_lst->userLevel == 1)
-                                                {
-                                                    echo 'Manager';
                                                 }   
                                                 else
                                                 {
@@ -122,13 +112,16 @@
                                                 ?>
                                           </td>
                                           <td>
-                                              <button class="btn btn-warning" data-toggle="modal"
-                                                  data-target="#modal-lg"><i class="fas fa-edit"></i></button>&nbsp
-                                              <a href="<?=site_url('Emp/remove/');?><?=$emp_lst->userId?>"><button
+                                              <a href="<?=site_url('Emp/edit/');?><?=$emp_lst->userId?>"> <button
+                                                      class="btn btn-warning" data-toggle="modal"
+                                                      data-target="#modal-lg"><i
+                                                          class="fas fa-edit"></i></button></a>&nbsp
+                                              <a href="<?=site_url('Emp/delete/');?><?=$emp_lst->userId?>"><button
                                                       class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
                                           </td>
                                       </tr>
                                       <?php
+                                            }
                                       }
                                       ?>
                                   </tbody>
@@ -148,69 +141,3 @@
       <!-- /.EMP List -->
   </div>
   <!-- /.content-wrapper -->
-  <!-- Edit Model -->
-  <div class="modal fade" id="modal-lg">
-      <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h4 class="modal-title">Update Detail</h4>
-              </div>
-              <?php
-                    foreach ($emp_lst_id as $emp_lst_id) 
-                    {
-                ?>
-              <form method="POST" action="<?=site_url('Emp/edit/');?><?=$emp_lst_id->userId?>">
-                  <div class="modal-body">
-                      <div class="row">
-                          <div class="form-group col-sm-6">
-                              <label>Department</label>
-                              <input type="text" class="form-control" name="txtdeptname"
-                                  placeholder="Enter Employee Department Name" value="<?=$emp_lst_id->deptName?>">
-                          </div>
-                          <div class="form-group col-sm-6">
-                              <label>Employee Name</label>
-                              <input type="text" class="form-control" name="txtempname"
-                                  placeholder="Enter Employee Name" value="<?=$emp_lst_id->empName?>">
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="form-group col-sm-6">
-                              <label>Email Id</label>
-                              <input type="text" class="form-control" name="txtemail"
-                                  placeholder="Enter Employee Email Id" value="<?=$emp_lst_id->emailId?>">
-                          </div>
-                          <div class="form-group col-sm-6">
-                              <label>Whatsapp Number</label>
-                              <input type="text" class="form-control" name="txtwnumber"
-                                  placeholder="Enter Employee Whatsapp Number" value="<?=$emp_lst_id->whatsappNumber?>">
-                          </div>
-                          <div class="form-group col-sm-6">
-                              <label>Role</label>
-                              <select class="form-control select2" name="txtrole" id="txtrole" style="width: 100%;"
-                                  value="<?=$emp_lst_id->userLevel?>">
-                                  <option>--Select--</option>
-                                  <option value="1">Manager</option>
-                                  <option value="2">Employee</option>
-                              </select>
-                          </div>
-                          <div class="form-group col-sm-6">
-                              <label>Password</label>
-                              <input type="password" class="form-control" name="txtpwd" placeholder="Enter Password"
-                                  value="<?=$emp_lst_id->passwords?>">
-                          </div>
-                      </div>
-                  </div>
-                  <div class="modal-footer justify-content-between">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary">Update</button>
-                  </div>
-              </form>
-              <?php
-                    }
-              ?>
-          </div>
-          <!-- /.modal-content -->
-      </div>
-      <!-- /.modal-dialog -->
-  </div>
-  <!-- /Edit Model -->
