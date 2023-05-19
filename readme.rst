@@ -27,48 +27,6 @@ issues, as well as missing features.
 
 use mysql or mariadb for dbms
 
-************
-Installation
-************
-
-Clone the project:
-
-Open a terminal or command prompt.
-Navigate to the desired directory where you want to clone the project.
-Run the following command to clone the project repository:
-bash
-Copy code
-git clone [repository_url]
-Replace [repository_url] with the URL of the project repository.
-Set permissions:
-
-Navigate to the root directory of the cloned project.
-Depending on your specific requirements and server setup, you may need to set appropriate permissions for certain directories or files. Common permissions are 755 for directories and 644 for files. You can use the chmod command to set permissions. For example:
-bash
-Copy code
-chmod -R 755 storage
-chmod -R 755 bootstrap/cache
-Upload the database:
-
-Export the database from your local development environment. You can use tools like phpMyAdmin or the command-line utility mysqldump to export the database as a .sql file.
-Log in to your MySQL or MariaDB server using a database management tool or the command-line interface.
-Create a new database on the server if it doesn't exist already.
-Import the database file you exported in the previous step into the newly created database. You can use tools like phpMyAdmin or the mysql command-line utility. For example:
-css
-Copy code
-mysql -u [username] -p [database_name] < [database_file.sql]
-Replace [username] with your database username, [database_name] with the name of the database, and [database_file.sql] with the path to your exported database file.
-Update configuration:
-
-Locate the configuration file of your project (often named something like .env).
-Open the file in a text editor and update the database connection details (database name, username, password, host) to match the server where you uploaded the database.
-Test the project:
-
-Ensure that your web server (e.g., Apache or Nginx) is running.
-Access your project through the appropriate URL (e.g., localhost or your domain name) in a web browser.
-Verify that the project is functioning correctly and connecting to the database.
-By following these steps, you should be able to successfully clone a project to the root directory of your host and upload the corresponding database to a MySQL or MariaDB server while ensuring the appropriate permissions are set.
-
 *******
 License
 *******
