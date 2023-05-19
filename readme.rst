@@ -6,7 +6,7 @@ The Ticket Management System is a software solution designed to streamline and a
 
 
 **************************
-Changelog and New Features
+Add New Features
 **************************
 -Add groupchat modual
 -Add some validation controll rules 
