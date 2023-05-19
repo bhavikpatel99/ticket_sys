@@ -24,14 +24,20 @@
                   <h3 class="card-title">Assign a Task to Employee</h3>
               </div>
               <div class="card-body col-12">
-                  <form method="POST" action="">
+                  <form method="POST" action="<?=base_url('Task/add');?>">
                       <div class="row">
                           <div class="form-group col-sm-6">
                               <label>Employee Name</label>
                               <select class="form-control select2" name="txtemp" id="txtemp" style="width: 100%;">
                                   <option>--Select--</option>
-                                  <option>EMP1</option>
-                                  <option>EMP2</option>
+                                  <?php
+                                    foreach ($emp_lst as $emp_lst)
+                                    {
+                                    ?>
+                                  <option value="<?=$emp_lst->userId?>"><?=$emp_lst->empName?></option>
+                                  <?php
+                                    }
+                                  ?>
                               </select>
                           </div>
                           <div class="form-group col-sm-6">
@@ -43,7 +49,7 @@
                       <div class="row">
                           <div class="form-group col-sm-3">
                               <label>Assign Date</label>
-                              <input type="date" class="form-control" name="txtduedate" required />
+                              <input type="date" class="form-control" name="txtassigndate" required />
                           </div>
                           <div class="form-group col-sm-3">
                               <label>Due Date</label>
@@ -82,18 +88,28 @@
                                           <th>Tools</th>
                                       </tr>
                                   </thead>
+                                  <?php
+                                    foreach ($task_lst as $task_lst)
+                                    {
+                                    ?>
                                   <tbody>
                                       <tr>
-                                          <td>ABCD</td>
-                                          <td>TASK1</td>
-                                          <td>8-5-2023</td>
-                                          <td>8-5-2023</td>
+                                          <td><?=$task_lst->empName?></td>
+                                          <td><?=$task_lst->task?></td>
+                                          <td><?=$task_lst->assignDate?></td>
+                                          <td><?=$task_lst->dueDate?></td>
                                           <td>
-                                              <button class="btn btn-warning"><i class="fas fa-edit"></i></button>&nbsp
-                                              <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                              <a href="<?=base_url('Task/edit/');?><?=$task_lst->taskId?>"><button
+                                                      class="btn btn-warning"><i
+                                                          class="fas fa-edit"></i></button></a>&nbsp
+                                              <a href="<?=base_url('Task/delete/');?><?=$task_lst->taskId?>"><button
+                                                      class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
                                           </td>
                                       </tr>
                                   </tbody>
+                                  <?php
+                                    }
+                                  ?>
                               </table>
                           </div>
                           <!-- /.card-body -->

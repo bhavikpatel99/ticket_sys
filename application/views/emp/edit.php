@@ -29,7 +29,7 @@
                             foreach ($userinfo as $userinfo)
                             {
                         ?>
-                  <form method="POST" action="<?=base_url('Emp/update/');$userinfo->userId?>">
+                  <form method="POST" action="<?=base_url('Emp/update/');?><?=$userinfo->userId?>">
                       <div class="row">
                           <div class="form-group col-sm-6">
                               <label>Department</label>
@@ -62,8 +62,8 @@
                       <?php
                             }
                       ?>
-                      <button class="btn btn-primary col-sm-3" type="submit">
-                          <i class="fas fa-plus"></i> Update
+                      <button class="btn btn-primary col-sm-3">
+                          Update
                       </button>
                   </form>
               </div>
