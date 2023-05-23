@@ -7,11 +7,11 @@ class Home extends CI_Controller {
 	{
 		if(is_null($this->session->uid))
 		{
-			$this->load->view('Login');
+			$this->load->view('login');
 		}
 		else
 		{
-			$data['title'] = 'Welcome to ticket_system';
+			$data['title'] = 'Welcome to Hemratna Jewellers';
 			$this->load->view('template/header',$data);
 			$this->load->view('index');
 			$this->load->view('template/footer');

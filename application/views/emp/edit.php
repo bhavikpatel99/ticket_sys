@@ -26,9 +26,9 @@
               </div>
               <div class="card-body col-12">
                   <?php
-                            foreach ($userinfo as $userinfo)
-                            {
-                        ?>
+                        foreach ($userinfo as $userinfo)
+                        {
+                    ?>
                   <form method="POST" action="<?=base_url('Emp/update/');?><?=$userinfo->userId?>">
                       <div class="row">
                           <div class="form-group col-sm-6">
@@ -41,8 +41,15 @@
                               <input type="text" class="form-control" name="txtempname"
                                   placeholder="Enter Employee Name" value="<?=$userinfo->empName?>">
                           </div>
-                      </div>
-                      <div class="row">
+                          <div class="form-group  col-sm-6">
+                              <label>Employee Name</label>
+                              <select class="form-control select2" name="txtemptype" id="txtemptype"
+                                  style="width: 100%;">
+                                  <option value="--Select--">--Select--</option>
+                                  <option value="1">Employee</option>
+                                  <option value="2">Manager</option>
+                              </select>
+                          </div>
                           <div class="form-group col-sm-6">
                               <label>Email Id</label>
                               <input type="text" class="form-control" name="txtemail"
@@ -58,6 +65,7 @@
                               <input type="password" class="form-control" name="txtpwd" placeholder="Enter Password"
                                   value="<?=md5($userinfo->password)?>">
                           </div>
+
                       </div>
                       <?php
                             }

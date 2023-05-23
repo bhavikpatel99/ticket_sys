@@ -15,11 +15,11 @@ class Task extends CI_Controller {
 	{
 		if(is_null($this->session->uid))
 		{
-			redirect('Login');
+			redirect('login');
 		}
 		else
 		{
-			$data['title'] = 'Task';
+			$data['title'] = 'Hemratna Jewellers || Task';
 			$data['task_lst'] = $this->Task_m->get_task();
 			$data['emp_lst'] = $this->Task_m->get_emp();
 			$this->load->view('template/header',$data);

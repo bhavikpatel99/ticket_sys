@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Log in</title>
-
+    <title><?=$title?></title>
+    <link rel="icon" href="<?=base_url();?>assets\image\Hemratna_icon.png" type="image/icon type">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -20,7 +20,9 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="<?=site_url('Home');?>"><b>Ticket</b>System</a>
+            <a href="<?=site_url('Home');?>">
+                <img src="<?=base_url();?>assets\image\Hemratna_Full.png" alt="Hemratna Jwellers">
+            </a>
         </div>
         <!-- /.login-logo -->
         <div class="card">

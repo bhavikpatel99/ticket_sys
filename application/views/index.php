@@ -5,7 +5,7 @@
           <div class="container-fluid">
               <div class="row mb-2">
                   <div class="col-sm-6">
-                      <h1>Welcome To Task Management System</h1>
+                      <h1>Welcome To Hemratna Jewellers <b><?php echo $this->session->empName;?></b></h1>
                   </div>
                   <div class="col-sm-6">
                       <ol class="breadcrumb float-sm-right">

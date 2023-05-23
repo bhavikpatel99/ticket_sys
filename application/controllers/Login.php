@@ -14,7 +14,8 @@ class Login extends CI_Controller {
 	{
 		if(is_null($this->session->uid))
 		{
-			$this->load->view('login');
+			$data['title'] = 'Welcome to Hemratna Jewellers';
+			$this->load->view('login',$data);
 		}
 		else
 		{

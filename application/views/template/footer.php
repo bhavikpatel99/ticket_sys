@@ -1,11 +1,11 @@
 <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
+    <div class="float-right">
         <b>Develop By - </b><a href="https://www.linkedin.com/in/patelbhavik021299/">Bhavik Patel</a>
     </div>
     <div class="float-right d-none d-sm-block">
         <b>Version</b> 0.1 &nbsp; &nbsp; &nbsp; &nbsp;
     </div>
-    <strong>Copyright &copy; 2023 <a href="#">Ticket Management System</a>.</strong> All rights
+    <strong>Copyright &copy; 2023 <a href="#">Hemratna Jewellers</a>.</strong> All rights
     reserved.
 </footer>
 

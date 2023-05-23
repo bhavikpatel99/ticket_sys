@@ -41,6 +41,7 @@ class Emp_m extends CI_Model
 			"emailId"=>$this->input->post("txtemail"),
 			"whatsappNumber"=>$this->input->post("txtwnumber"),
 			"deptName"=>$this->input->post("txtdeptname"),
+            "userLevel"=>$this->input->post("txtemptype"),
 			"password"=>md5($this->input->post("txtpwd")),
          ];
          $result = $this->db->where('userId',$id)->update('tbluser',$data);

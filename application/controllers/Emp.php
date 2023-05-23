@@ -19,7 +19,7 @@ class Emp extends CI_Controller {
 		}
 		else
 		{
-			$data['title'] = 'ticket_system || Employee';
+			$data['title'] = 'Hemratna Jewellers || Employee';
 			$data['emp_lst'] = $this->Emp_m->get_emp();
 			$this->load->view('template/header',$data);
 			$this->load->view('emp/list',$data);
@@ -36,6 +36,7 @@ class Emp extends CI_Controller {
 			  "whatsappNumber"=>$this->input->post("txtwnumber"),
 			  "deptName"=>$this->input->post("txtdeptname"),
 			  "password"=>md5($this->input->post("txtpwd")),
+			  "userLevel"=>$this->input->post("txtemptype"),
 			  "entry_By"=>$this->session->uid
 		  );
 		  $this->db->insert('tbluser',$data);
