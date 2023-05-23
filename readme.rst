@@ -1,29 +1,19 @@
 ###################
-What is CodeIgniter
+What is Ticket Management System
 ###################
 
-CodeIgniter is an Application Development Framework - a toolkit - for people
-who build web sites using PHP. Its goal is to enable you to develop projects
-much faster than you could if you were writing code from scratch, by providing
-a rich set of libraries for commonly needed tasks, as well as a simple
-interface and logical structure to access these libraries. CodeIgniter lets
-you creatively focus on your project by minimizing the amount of code needed
-for a given task.
+The Ticket Management System is a software solution designed to streamline and automate the process of assigning and tracking tasks or issues within an organization. It allows supervisors or managers to assign tickets, which can represent tasks, support requests, or any other type of work item, to employees or team members. The system provides a centralized platform where tickets can be created, assigned, prioritized, and tracked throughout their lifecycle. By using a Ticket Management System, bosses can efficiently assign tickets to employees, ensuring that tasks are properly allocated and progress can be monitored effectively.
 
-*******************
-Release Information
-*******************
-
-This repo contains in-development code for future releases. To download the
-latest stable release please visit the `CodeIgniter Downloads
-<https://codeigniter.com/download>`_ page.
 
 **************************
-Changelog and New Features
+Add New Features
 **************************
-
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst>`_.
+-Add groupchat modual
+-Add some validation controll rules 
+-Intigrate Some advance option as per requirments 
+-Add basic analysis on dashboard
+-fix bugs 
+-worke on bases feedback and review a system by organisation 
 
 *******************
 Server Requirements
@@ -35,37 +25,21 @@ It should work on 5.3.7 as well, but we strongly advise you NOT to run
 such old versions of PHP, because of potential security and performance
 issues, as well as missing features.
 
-************
-Installation
-************
-
-Please see the `installation section <https://codeigniter.com/userguide3/installation/index.html>`_
-of the CodeIgniter User Guide.
+use mysql or mariadb for dbms
 
 *******
 License
 *******
 
-Please see the `license
-agreement <https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst>`_.
+Permission is hereby granted, free of charge, to any person obtaining a copy of the code (the "Software"), to deal with the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-*********
-Resources
-*********
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
--  `User Guide <https://codeigniter.com/docs>`_
--  `Contributing Guide <https://github.com/bcit-ci/CodeIgniter/blob/develop/contributing.md>`_
--  `Language File Translations <https://github.com/bcit-ci/codeigniter3-translations>`_
--  `Community Forums <http://forum.codeigniter.com/>`_
--  `Community Wiki <https://github.com/bcit-ci/CodeIgniter/wiki>`_
--  `Community Slack Channel <https://codeigniterchat.slack.com>`_
+Attribution Requirement: If you modify the Software or use it in your project, you must retain the original developer's name as a contributor to the Software, and you must include the following statement prominently in your project documentation, source code comments, and any accompanying materials:
+"This project includes code developed by [Original Developer's Name]."
 
-Report security issues to our `Security Panel <mailto:security@codeigniter.com>`_
-or via our `page on HackerOne <https://hackerone.com/codeigniter>`_, thank you.
+No Warranty or Liability: The Software is provided "as is," without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the Software or the use or other dealings in the Software. You, as the user or developer, assume all responsibility and risk for the use of the Software and any consequences arising from it.
 
-***************
-Acknowledgement
-***************
+[Original Developer's Name] refers to the name of the original developer or your name as the developer, depending on the case.
 
-The CodeIgniter team would like to thank EllisLab, all the
-contributors to the CodeIgniter project and you, the CodeIgniter user.
+Please note that this is a template for the MIT License Agreement. It is advisable to consult a legal professional to ensure compliance with applicable laws and to address the specific requirements of your project.
