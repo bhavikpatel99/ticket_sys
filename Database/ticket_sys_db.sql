@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `tbltask` (
   `entryDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `description` varchar(255) NOT NULL,
   PRIMARY KEY (`taskId`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `tbluser` (
   `userStatus` tinyint NOT NULL DEFAULT '1',
   `userLevel` tinyint NOT NULL DEFAULT '1' COMMENT '0.)Boss,1.)Employee',
   PRIMARY KEY (`userId`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `tbluser`
