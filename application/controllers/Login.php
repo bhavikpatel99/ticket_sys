@@ -14,7 +14,7 @@ class Login extends CI_Controller {
 	{
 		if(is_null($this->session->uid))
 		{
-			$this->load->view('Login');
+			$this->load->view('login');
 		}
 		else
 		{
