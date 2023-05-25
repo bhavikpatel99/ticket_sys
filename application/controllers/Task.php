@@ -15,7 +15,7 @@ class Task extends CI_Controller {
 	{
 		if(is_null($this->session->uid))
 		{
-			redirect('login');
+			redirect('Login');
 		}
 		else
 		{

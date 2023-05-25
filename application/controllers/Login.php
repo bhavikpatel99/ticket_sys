@@ -47,6 +47,7 @@ class Login extends CI_Controller {
 				$this->session->emailId=$u->emailId;
 				$this->session->whatsappNumber=$u->whatsappNumber;
 				$this->session->deptName=$u->deptName;
+				$this->session->userLevel=$u->userLevel;
 				redirect('Home');
 			}
 			else

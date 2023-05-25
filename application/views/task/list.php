@@ -88,11 +88,11 @@
                                           <th>Tools</th>
                                       </tr>
                                   </thead>
-                                  <?php
-                                    foreach ($task_lst as $task_lst)
-                                    {
-                                    ?>
                                   <tbody>
+                                      <?php
+                                    foreach ($task_lst as $task_lst)
+                                        {
+                                      ?>
                                       <tr>
                                           <td><?=$task_lst->empName?></td>
                                           <td><?=$task_lst->task?></td>
@@ -106,10 +106,10 @@
                                                       class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
                                           </td>
                                       </tr>
-                                  </tbody>
-                                  <?php
+                                      <?php
                                     }
                                   ?>
+                                  </tbody>
                               </table>
                           </div>
                           <!-- /.card-body -->
