@@ -9,6 +9,7 @@ class Task_m extends CI_Model
         $this->db->select('*');
         $this->db->from('tbluser');
         $this->db->where('userLevel','1');
+        $this->db->or_where('userLevel','2');
         $query = $this->db->get();
         $result = $query->result();
         return $result;
@@ -17,25 +18,26 @@ class Task_m extends CI_Model
      public function get_task()
      {
          $this->db->from('tbltask t');
-         $this->db->join('tbluser b','b.userId=t.empId');
+         $this->db->join('tbluser b','b.userId=t.assign_To');
          $quary = $this->db->get();
          return $quary->result();
      }
-       // Function to select particular record from table name tbltask
-      public function show_task_id($id)
-      {
-          $this->db->from('tbltask t');
-          $this->db->join('tbluser b','b.userId=t.empId');
-          $this->db->where('t.empId', $id);
-          $quary = $this->db->get();
-          return $quary->result();
-      }
-     // Function to select particular record from table name tbltask
-    function get_task_id($id){
+     // Select Send Task
+     function get_send_task_id($id){
         $query = $this->db->select('t.*,b.empName')
                       ->from('tbltask t')
-                      ->join('tbluser b', 'b.userId = t.empId')
-                      ->where('t.empId', $id)
+                      ->join('tbluser b', 'b.userId = t.assign_To')
+                      ->where('t.assign_By', $id)
+                      ->or_where('t.entry_By', $id)
+                      ->get();
+    return $query->result();
+     }
+     // Select Recive Task
+    function get_recive_task_id($id){
+        $query = $this->db->select('t.*,b.empName')
+                      ->from('tbltask t')
+                      ->join('tbluser b', 'b.userId = t.assign_To')
+                      ->where('t.assign_To', $id)
                       ->or_where('t.entry_By', $id)
                       ->get();
     return $query->result();

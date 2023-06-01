@@ -20,7 +20,6 @@
         if ($this->session->flashdata('alert')) {
             echo '<script>alert("' . $this->session->flashdata('alert') . '");</script>';
         }
-    
       ?>
       <!-- Emp Form -->
       <section class="content">

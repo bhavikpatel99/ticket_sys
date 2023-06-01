@@ -16,6 +16,19 @@
               </div>
           </div><!-- /.container-fluid -->
       </section>
+      <!-- Task list view buttons -->
+      <section class="content">
+          <a class="btn btn-primary" href="<?=site_url('Task/send_task')?>"><i class="fas fa-upload"></i> Send Task
+              List</a>
+          <a class="btn btn-primary" href="<?=site_url('Task/recive_task')?>"><i class="fas fa-download"></i> Recive
+              Task List</a>
+      </section>
+      <br>
+      <?php
+        if ($this->session->flashdata('alert')) {
+            echo '<script>alert("' . $this->session->flashdata('alert') . '");</script>';
+        }
+      ?>
       <!-- Task Form -->
       <section class="content">
           <!-- Default box -->
@@ -66,87 +79,5 @@
           <!-- /.card -->
       </section>
       <!-- /.Task Form -->
-      <!--Task List -->
-      <!-- Main content -->
-      <section class="content">
-          <div class="container-fluid">
-              <div class="row">
-                  <div class="col-12">
-                      <div class="card">
-                          <div class="card-header">
-                              <h3 class="card-title">Task List</h3>
-                          </div>
-                          <!-- /.card-header -->
-                          <div class="card-body">
-                              <table id="example_task" name="example_task" class="table table-bordered table-hover">
-                                  <thead>
-                                      <tr>
-                                          <th>Employee Name</th>
-                                          <th>Assign Task</th>
-                                          <th>Assign Date</th>
-                                          <th>Due Date</th>
-                                          <th>Tools</th>
-                                      </tr>
-                                  </thead>
-                                  <tbody>
-                                      <?php
-                                        if($this->session->userLevel == 0)
-                                        {
-                                            foreach ($task_lst as $task_lst)
-                                            {
-                                        ?>
-                                      <tr>
-                                          <td><?=$task_lst->empName?></td>
-                                          <td><?=$task_lst->task?></td>
-                                          <td><?=$task_lst->assignDate?></td>
-                                          <td><?=$task_lst->dueDate?></td>
-                                          <td>
-                                              <a href="<?=base_url('Task/edit/');?><?=$task_lst->taskId?>"><button
-                                                      class="btn btn-warning"><i
-                                                          class="fas fa-edit"></i></button></a>&nbsp
-                                              <a href="<?=base_url('Task/delete/');?><?=$task_lst->taskId?>"><button
-                                                      class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
-                                          </td>
-                                      </tr>
-                                      <?php
-                                            }
-                                      }
-                                      else
-                                      {
-                                        foreach ($task_lst_id as $task_lst)
-                                        {
-                                    ?>
-                                      <tr>
-                                          <td><?=$task_lst->empName?></td>
-                                          <td><?=$task_lst->task?></td>
-                                          <td><?=$task_lst->assignDate?></td>
-                                          <td><?=$task_lst->dueDate?></td>
-                                          <td>
-                                              <a href="<?=base_url('Task/edit/');?><?=$task_lst->taskId?>"><button
-                                                      class="btn btn-warning"><i
-                                                          class="fas fa-edit"></i></button></a>&nbsp
-                                              <a href="<?=base_url('Task/delete/');?><?=$task_lst->taskId?>"><button
-                                                      class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
-                                          </td>
-                                      </tr>
-                                      <?php
-                                        }
-                                      }
-                                      ?>
-                                  </tbody>
-                              </table>
-                          </div>
-                          <!-- /.card-body -->
-                      </div>
-                      <!-- /.card -->
-                  </div>
-                  <!-- /.col -->
-              </div>
-              <!-- /.row -->
-          </div>
-          <!-- /.container-fluid -->
-      </section>
-      <!-- /.content -->
-      <!-- /.Task List -->
   </div>
   <!-- /.content-wrapper -->

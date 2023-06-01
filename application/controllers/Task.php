@@ -21,11 +21,49 @@ class Task extends CI_Controller {
 		{
 			$id = $this->session->uid;
 			$data['title'] = 'Hemratna Jewellers || Task';
-			$data['task_lst'] = $this->Task_m->get_task();
 			$data['emp_lst'] = $this->Task_m->get_emp();
-			$data['task_lst_id'] = $this->Task_m->get_task_id($id);
 			$this->load->view('template/header',$data);
 			$this->load->view('task/list',$data);	
+			$this->load->view('template/footer');
+		}
+	}
+
+	// Send Task
+	public function send_task()
+	{
+		if(is_null($this->session->uid))
+		{
+			redirect('Login');
+		}
+		else
+		{
+			$id = $this->session->uid;
+			$data['title'] = 'Hemratna Jewellers || Task || Send Task';
+			$data['task_lst'] = $this->Task_m->get_task();
+			$data['emp_lst'] = $this->Task_m->get_emp();
+			$data['task_lst_id'] = $this->Task_m->get_send_task_id($id);
+			$this->load->view('template/header',$data);
+			$this->load->view('task/send_task_lst',$data);	
+			$this->load->view('template/footer');
+		}
+	}
+
+	// Recive Task
+	public function recive_task()
+	{
+		if(is_null($this->session->uid))
+		{
+			redirect('Login');
+		}
+		else
+		{
+			$id = $this->session->uid;
+			$data['title'] = 'Hemratna Jewellers || Task || Send Task';
+			$data['task_lst'] = $this->Task_m->get_task();
+			$data['emp_lst'] = $this->Task_m->get_emp();
+			$data['task_lst_id'] = $this->Task_m->get_recive_task_id($id);
+			$this->load->view('template/header',$data);
+			$this->load->view('task/recive_task_lst',$data);	
 			$this->load->view('template/footer');
 		}
 	}
@@ -34,43 +72,45 @@ class Task extends CI_Controller {
 	{
 		// data array
 		$data = array(
-			"empId" => $this->input->post("txtemp"),
+			"assign_To" => $this->input->post("txtemp"),
+			"assign_By" => $this->session->empName,
 			"task" => $this->input->post("txttask"),
 			"assignDate" => date("Y-m-d", strtotime($this->input->post("txtassigndate"))),
 			"dueDate" => date("Y-m-d", strtotime($this->input->post("txtduedate"))),
 			"entry_By" => $this->session->uid
 		);
 		$this->db->insert('tbltask', $data);
+		$this->session->set_flashdata('alert', 'Task Assigned');
 		redirect("Task");
 	}
 	
-	  // Function to Fetch selected record from database.
-	  function show_task_id() {
-		  $id = $this->uri->segment(3);
-		  $data['single_task'] = $this->Task_m->show_task_id($id);
-		  $this->load->view('task/list', $data);
-	  }
-	  // Delete User
-	  public function delete($id)
-	  {
-		  $this->show_task_id($id);
-		  $this->Task_m->delete_task($id);
-		  redirect('Task');
-	  }
-	  // edit
-	  public function edit($id)
-	  {
-		  $data['title'] = 'Edit Task';
-		  $id = $this->uri->segment(3);
-		 $data['taskinfo'] = $this->Task_m->show_task_id($id);
-		 $this->load->view('template/header',$data);
-		 $this->load->view('task/edit',$data,$id);
-		 $this->load->view('template/footer');
-	  }
-	  // Update User
-	  function update() {
-		  $id = $this->uri->segment(3);
-		  $this->Task_m->update_task($id);
-		  redirect('Task');
-	  }
+	// Function to Fetch selected record from database.
+	function show_task_id() {
+		$id = $this->uri->segment(3);
+		$data['single_task'] = $this->Task_m->show_task_id($id);
+		$this->load->view('task/list', $data);
+	}
+	// Delete User
+	public function delete($id)
+	{
+		$this->show_task_id($id);
+		$this->Task_m->delete_task($id);
+		redirect('Task');
+	}
+	// edit
+	public function edit($id)
+	{
+		$data['title'] = 'Edit Task';
+		$id = $this->uri->segment(3);
+		$data['taskinfo'] = $this->Task_m->get_recive_task_id($id);
+		$this->load->view('template/header',$data);
+		$this->load->view('task/edit',$data,$id);
+		$this->load->view('template/footer');
+	}
+	// Update User
+	function update() {
+		$id = $this->uri->segment(3);
+		$this->Task_m->update_task($id);
+		redirect('Task');
+	}
 }
