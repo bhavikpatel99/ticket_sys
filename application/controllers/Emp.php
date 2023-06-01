@@ -28,20 +28,44 @@ class Emp extends CI_Controller {
 	}
 	  // Add New User
 	  public function add()
-	  {	
-		  // data array
-		  $data=array(
-			  "empName"=>$this->input->post("txtempname"),
-			  "emailId"=>$this->input->post("txtemail"),
-			  "whatsappNumber"=>$this->input->post("txtwnumber"),
-			  "deptName"=>$this->input->post("txtdeptname"),
-			  "password"=>md5($this->input->post("txtpwd")),
-			  "userLevel"=>$this->input->post("txtemptype"),
-			  "entry_By"=>$this->session->uid
-		  );
-		  $this->db->insert('tbluser',$data);
-		  redirect("Emp");
+	  {
+		  // Get the input values
+		  $empName = $this->input->post("txtempname");
+		  $emailId = $this->input->post("txtemail");
+		  $whatsappNumber = $this->input->post("txtwnumber");
+		  $deptName = $this->input->post("txtdeptname");
+		  $password = md5($this->input->post("txtpwd"));
+		  $userLevel = $this->input->post("txtemptype");
+		  $entryBy = $this->session->uid;
+	  
+		  // Check if the email ID and WhatsApp number are the same
+		  $existingRecord = $this->db->where('emailId', $emailId)
+									 ->where('whatsappNumber', $whatsappNumber)
+									 ->get('tbluser')
+									 ->row();
+	  
+		  if ($existingRecord) {
+			  // Set flashdata with the alert message
+			  $this->session->set_flashdata('alert', 'Email ID and WhatsApp number already exist. Please provide unique One.');
+			  redirect("Emp");
+		  } else {
+			  // Insert the record
+			  $data = array(
+				  "empName" => $empName,
+				  "emailId" => $emailId,
+				  "whatsappNumber" => $whatsappNumber,
+				  "deptName" => $deptName,
+				  "password" => $password,
+				  "userLevel" => $userLevel,
+				  "entry_By" => $entryBy
+			  );
+	  
+			  $this->db->insert('tbluser', $data);
+			  redirect("Emp");
+		  }
 	  }
+	  
+	// Update User
 	  // Function to Fetch selected record from database.
 	  function show_user_id() {
 		  $id = $this->uri->segment(3);

@@ -16,6 +16,12 @@
               </div>
           </div><!-- /.container-fluid -->
       </section>
+      <?php
+        if ($this->session->flashdata('alert')) {
+            echo '<script>alert("' . $this->session->flashdata('alert') . '");</script>';
+        }
+    
+      ?>
       <!-- Emp Form -->
       <section class="content">
           <!-- Default box -->
@@ -37,7 +43,7 @@
                                   placeholder="Enter Employee Name" required>
                           </div>
                           <div class="form-group  col-sm-6">
-                              <label>Employee Name</label>
+                              <label>Employee Type</label>
                               <select class="form-control select2" name="txtemptype" id="txtemptype"
                                   style="width: 100%;">
                                   <option value="--Select--">--Select--</option>
