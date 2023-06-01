@@ -16,7 +16,7 @@
               </div>
           </div><!-- /.container-fluid -->
       </section>
-      <!-- Emp Form -->
+      <!-- Task Form -->
       <section class="content">
           <!-- Default box -->
           <div class="card">
@@ -65,8 +65,8 @@
           </div>
           <!-- /.card -->
       </section>
-      <!-- /.Emp Form -->
-      <!--EMP List -->
+      <!-- /.Task Form -->
+      <!--Task List -->
       <!-- Main content -->
       <section class="content">
           <div class="container-fluid">
@@ -90,9 +90,11 @@
                                   </thead>
                                   <tbody>
                                       <?php
-                                    foreach ($task_lst as $task_lst)
+                                        if($this->session->userLevel == 0)
                                         {
-                                      ?>
+                                            foreach ($task_lst as $task_lst)
+                                            {
+                                        ?>
                                       <tr>
                                           <td><?=$task_lst->empName?></td>
                                           <td><?=$task_lst->task?></td>
@@ -107,8 +109,30 @@
                                           </td>
                                       </tr>
                                       <?php
-                                    }
-                                  ?>
+                                            }
+                                      }
+                                      else
+                                      {
+                                        foreach ($task_lst_id as $task_lst)
+                                        {
+                                    ?>
+                                      <tr>
+                                          <td><?=$task_lst->empName?></td>
+                                          <td><?=$task_lst->task?></td>
+                                          <td><?=$task_lst->assignDate?></td>
+                                          <td><?=$task_lst->dueDate?></td>
+                                          <td>
+                                              <a href="<?=base_url('Task/edit/');?><?=$task_lst->taskId?>"><button
+                                                      class="btn btn-warning"><i
+                                                          class="fas fa-edit"></i></button></a>&nbsp
+                                              <a href="<?=base_url('Task/delete/');?><?=$task_lst->taskId?>"><button
+                                                      class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
+                                          </td>
+                                      </tr>
+                                      <?php
+                                        }
+                                      }
+                                      ?>
                                   </tbody>
                               </table>
                           </div>
@@ -123,6 +147,6 @@
           <!-- /.container-fluid -->
       </section>
       <!-- /.content -->
-      <!-- /.EMP List -->
+      <!-- /.Task List -->
   </div>
   <!-- /.content-wrapper -->

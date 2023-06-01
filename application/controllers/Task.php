@@ -19,9 +19,11 @@ class Task extends CI_Controller {
 		}
 		else
 		{
+			$id = $this->session->uid;
 			$data['title'] = 'Hemratna Jewellers || Task';
 			$data['task_lst'] = $this->Task_m->get_task();
 			$data['emp_lst'] = $this->Task_m->get_emp();
+			$data['task_lst_id'] = $this->Task_m->get_task_id($id);
 			$this->load->view('template/header',$data);
 			$this->load->view('task/list',$data);	
 			$this->load->view('template/footer');
