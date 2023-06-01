@@ -21,6 +21,15 @@ class Task_m extends CI_Model
          $quary = $this->db->get();
          return $quary->result();
      }
+       // Function to select particular record from table name tbltask
+      public function show_task_id($id)
+      {
+          $this->db->from('tbltask t');
+          $this->db->join('tbluser b','b.userId=t.empId');
+          $this->db->where('t.empId', $id);
+          $quary = $this->db->get();
+          return $quary->result();
+      }
      // Function to select particular record from table name tbltask
     function get_task_id($id){
         $query = $this->db->select('t.*,b.empName')
@@ -29,7 +38,6 @@ class Task_m extends CI_Model
                       ->where('t.empId', $id)
                       ->or_where('t.entry_By', $id)
                       ->get();
-
     return $query->result();
      }
      // Delete Task
