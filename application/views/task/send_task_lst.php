@@ -35,24 +35,24 @@
                                   <thead>
                                       <tr>
                                           <th>Sr.No</th>
-                                          <th>Employee</th>
+                                          <th>Assign To</th>
                                           <th>Task</th>
-                                          <th>Assign Date</th>
                                           <th>Due Date</th>
+                                          <th>Assign Date</th>
                                           <th>Tools</th>
                                       </tr>
                                   </thead>
                                   <tbody>
                                       <?php
-                                        foreach ($task_lst_id as $task_lst)
-                                        {
-                                        ?>
+                                        $counter = 1;
+                                        foreach ($task_lst_id as $task_lst) {
+                                      ?>
                                       <tr>
-                                          <td>1</td>
+                                          <td><?=$counter?></td>
                                           <td><?=$task_lst->empName?></td>
                                           <td><?=$task_lst->task?></td>
-                                          <td><?=$task_lst->assignDate?></td>
                                           <td><?=$task_lst->dueDate?></td>
+                                          <td><?=$task_lst->assignDate?></td>
                                           <td>
                                               <a href="<?=base_url('Task/edit/');?><?=$task_lst->taskId?>"><button
                                                       class="btn btn-warning"><i
@@ -62,8 +62,9 @@
                                           </td>
                                       </tr>
                                       <?php
-                                        }
-                                      ?>
+                                            $counter++;
+                                            }
+                                       ?>
                                   </tbody>
                               </table>
                           </div>

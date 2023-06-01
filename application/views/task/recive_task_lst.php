@@ -35,6 +35,7 @@
                                   <thead>
                                       <tr>
                                           <th>Sr.No</th>
+                                          <th>Assign By</th>
                                           <th>Task</th>
                                           <th>Assign Date</th>
                                           <th>Due Date</th>
@@ -44,11 +45,13 @@
                                   </thead>
                                   <tbody>
                                       <?php
+                                        $counter = 1;
                                         foreach ($task_lst_id as $task_lst)
                                         {
                                     ?>
                                       <tr>
-                                          <td>1</td>
+                                          <td><?= $counter?></td>
+                                          <td><?=$task_lst->assign_By?></td>
                                           <td><?=$task_lst->task?></td>
                                           <td><?=$task_lst->assignDate?></td>
                                           <td><?=$task_lst->dueDate?></td>
@@ -90,6 +93,7 @@
                                           </td>
                                       </tr>
                                       <?php
+                                        $counter++;
                                         }
                                       ?>
                                   </tbody>
