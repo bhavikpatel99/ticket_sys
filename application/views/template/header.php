@@ -144,12 +144,12 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                             with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="<?=site_url('Home/emp');?>" class="nav-link">
+                        <!-- <li class="nav-item">
+                            <a href="<?=site_url('Home');?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Dashboard</p>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a href="<?=site_url('Task');?>" class="nav-link">
                                 <i class="nav-icon fas fa-tasks"></i>

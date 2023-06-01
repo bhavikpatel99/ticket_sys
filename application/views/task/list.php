@@ -16,7 +16,7 @@
               </div>
           </div><!-- /.container-fluid -->
       </section>
-      <!-- Emp Form -->
+      <!-- Task Form -->
       <section class="content">
           <!-- Default box -->
           <div class="card">
@@ -65,8 +65,8 @@
           </div>
           <!-- /.card -->
       </section>
-      <!-- /.Emp Form -->
-      <!--EMP List -->
+      <!-- /.Task Form -->
+      <!--Task List -->
       <!-- Main content -->
       <section class="content">
           <div class="container-fluid">
@@ -123,6 +123,6 @@
           <!-- /.container-fluid -->
       </section>
       <!-- /.content -->
-      <!-- /.EMP List -->
+      <!-- /.Task List -->
   </div>
   <!-- /.content-wrapper -->

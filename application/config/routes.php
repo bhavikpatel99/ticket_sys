@@ -53,3 +53,5 @@ $route['default_controller'] = 'Login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['Home'] = 'Home';
+$route['Emp'] = 'Emp';
+$route['Task'] = 'Task';

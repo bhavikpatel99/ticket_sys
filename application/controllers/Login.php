@@ -25,42 +25,49 @@ class Login extends CI_Controller {
 	// User Login
 	public function dologin()
 	{	
-		$cond=array(
-			"emailId"=>$this->input->post("txtemail"),
-			"password"=>md5($this->input->post('txtpwd'))
+		$cond = array(
+			"emailId" => $this->input->post("txtemail"),
+			"password" => md5($this->input->post('txtpwd'))
 		);
-		$u=$this->User_m->getuser($cond);
-		if($u==false)
+
+		$u = $this->User_m->getuser($cond);
+
+		if ($u == false)
 		{
-			$error=array(
-				"errorMSG"=>"Invalid username or password.",
-				"errorType"=>"LoginError"
+			$error = array(
+				"errorMSG" => "Invalid username or password.",
+				"errorType" => "LoginError"
 			);
-			$this->load->view('login',$error);
+			$this->load->view('login', $error);
 		}
 		else
 		{		
-			if ($u->userStatus==1) 
+			if ($u->userStatus == 1) 
 			{
-				$this->session->uid=$u->userId;
-				$this->session->empName=$u->empName;
-				$this->session->emailId=$u->emailId;
-				$this->session->whatsappNumber=$u->whatsappNumber;
-				$this->session->deptName=$u->deptName;
-				$this->session->userLevel=$u->userLevel;
-				redirect('Home');
+				$this->session->uid = $u->userId;
+				$this->session->empName = $u->empName;
+				$this->session->emailId = $u->emailId;
+				$this->session->whatsappNumber = $u->whatsappNumber;
+				$this->session->deptName = $u->deptName;
+				$this->session->userLevel = $u->userLevel;
+
+				if ($this->session->userLevel == 0 || $this->session->userLevel == 2)
+					redirect('Home');
+				else
+					redirect('Task');
 			}
 			else
 			{
-				$this->session->uid=0;
-				$error=array(
-				"errorMSG"=>"This Admin Is Blocked, Please Contact Your SuperAdmin.",
-				"errorType"=>"LoginError"
+				$this->session->uid = 0;
+				$error = array(
+					"errorMSG" => "This Admin Is Blocked, Please Contact Your SuperAdmin.",
+					"errorType" => "LoginError"
 				);
-				$this->load->view('login',$error);
+				$this->load->view('login', $error);
 			}
 		}
 	}
+
 	// UserLogout
 	public function logout()
 	{
