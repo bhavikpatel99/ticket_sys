@@ -17,54 +17,82 @@
       </section>
       <!-- Main content -->
       <section class="content">
-          <div class="col-md-3 col-sm-6 col-12">
-              <div class="info-box">
-                  <span class="info-box-icon bg-info"><i class="nav-icon fas fa-user"></i></span>
-                  <div class="info-box-content">
-                      <span class="info-box-text">Employees</span>
-                      <span class="info-box-number">
-                          <?php
+          <div class="row">
+              <div class="col-md-3 col-sm-6 col-12">
+                  <div class="info-box">
+                      <span class="info-box-icon bg-info"><i class="nav-icon fas fa-tasks"></i></span>
+                      <div class="info-box-content">
+                          <span class="info-box-text">Incomplete Task</span>
+                          <span class="info-box-number text-red">
+                              <?php
+                            $this->db->select('*');
+                            $this->db->from('tbltask');
+                            $this->db->where('taskStatus',1);
+                            echo $this->db->count_all_results();
+                            ?>
+                          </span>
+                      </div>
+                      <!-- /.info-box-content -->
+                  </div>
+                  <!-- /.info-box -->
+              </div>
+              <div class="col-md-3 col-sm-6 col-12">
+                  <div class="info-box">
+                      <span class="info-box-icon bg-info"><i class="nav-icon fas fa-tasks   "></i></span>
+                      <div class="info-box-content">
+                          <span class="info-box-text">Complete Task</span>
+                          <span class="info-box-number text-green">
+                              <?php
+                            $this->db->select('*');
+                            $this->db->from('tbltask');
+                            $this->db->where('taskStatus',0);
+                            echo $this->db->count_all_results();
+                            ?>
+                          </span>
+                      </div>
+                      <!-- /.info-box-content -->
+                  </div>
+                  <!-- /.info-box -->
+              </div>
+              <div class="col-md-3 col-sm-6 col-12">
+                  <div class="info-box">
+                      <span class="info-box-icon bg-info"><i class="nav-icon fas fa-user"></i></span>
+                      <div class="info-box-content">
+                          <span class="info-box-text">Employees</span>
+                          <span class="info-box-number">
+                              <?php
                             $this->db->select('*');
                             $this->db->from('tbluser');
                             $this->db->where('userLevel',1);
                             echo $this->db->count_all_results();
                             ?>
-                      </span>
+                          </span>
+                      </div>
+                      <!-- /.info-box-content -->
                   </div>
-                  <!-- /.info-box-content -->
+                  <!-- /.info-box -->
               </div>
-              <!-- /.info-box -->
-          </div>
-          <div class="col-md-3 col-sm-6 col-12">
-              <div class="info-box">
-                  <span class="info-box-icon bg-info"><i class="nav-icon fas fa-user"></i></span>
-                  <div class="info-box-content">
-                      <span class="info-box-text">Manager</span>
-                      <span class="info-box-number">
-                          <?php
+              <div class="col-md-3 col-sm-6 col-12">
+                  <div class="info-box">
+                      <span class="info-box-icon bg-info"><i class="nav-icon fas fa-user"></i></span>
+                      <div class="info-box-content">
+                          <span class="info-box-text">Manager</span>
+                          <span class="info-box-number">
+                              <?php
                             $this->db->select('*');
                             $this->db->from('tbluser');
                             $this->db->where('userLevel',2);
                             echo $this->db->count_all_results();
                             ?>
-                      </span>
+                          </span>
+                      </div>
+                      <!-- /.info-box-content -->
                   </div>
-                  <!-- /.info-box-content -->
+                  <!-- /.info-box -->
               </div>
-              <!-- /.info-box -->
+              <!-- /.col -->
           </div>
-          <!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-12">
-              <div class="info-box">
-                  <span class="info-box-icon bg-info"><i class="nav-icon fas fa-tasks"></i></span>
-                  <div class="info-box-content">
-                      <span class="info-box-text">Employees Assign Task</span>
-                      <span class="info-box-number"><?=$this->db->count_all('tbltask');?></span>
-                  </div>
-                  <!-- /.info-box-content -->
-              </div>
-              <!-- /.info-box -->
-          </div>
+
           <!-- /.col -->
           <!--Task List -->
           <!-- Main content -->

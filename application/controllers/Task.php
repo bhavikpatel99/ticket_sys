@@ -58,7 +58,7 @@ class Task extends CI_Controller {
 		else
 		{
 			$id = $this->session->uid;
-			$data['title'] = 'Hemratna Jewellers || Task || Send Task';
+			$data['title'] = 'Hemratna Jewellers || Task || Recive Task';
 			$data['task_lst'] = $this->Task_m->get_task();
 			$data['emp_lst'] = $this->Task_m->get_emp();
 			$data['task_lst_id'] = $this->Task_m->get_recive_task_id($id);
@@ -108,9 +108,18 @@ class Task extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 	// Update User
-	function update() {
+	public function update() {
 		$id = $this->uri->segment(3);
 		$this->Task_m->update_task($id);
 		redirect('Task');
+	}
+	// toogal task status
+	public function toggle_status()
+	{
+		$id = $this->session->uid;
+		$taskStatus = $this->Task_m->get_task_status($id);
+		$newStatus = ($taskStatus == 1) ? 0 : 1;
+		$this->Task_m->update_task_status($id, $newStatus);
+		redirect('task/recive_task');
 	}
 }

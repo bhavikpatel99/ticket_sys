@@ -16,6 +16,21 @@
               </div>
           </div><!-- /.container-fluid -->
       </section>
+      <?php
+        if($this->session->userLevel == 0)
+        {
+    ?>
+      <!-- Task list view buttons -->
+      <section class="content">
+          <a class="btn btn-primary" href="<?=site_url('Task/send_task')?>"><i class="fas fa-upload"></i> Send Task
+              List</a>
+      </section>
+      <br>
+      <?php
+        }
+        else
+        {
+      ?>
       <!-- Task list view buttons -->
       <section class="content">
           <a class="btn btn-primary" href="<?=site_url('Task/send_task')?>"><i class="fas fa-upload"></i> Send Task
@@ -25,6 +40,7 @@
       </section>
       <br>
       <?php
+      }
         if ($this->session->flashdata('alert')) {
             echo '<script>alert("' . $this->session->flashdata('alert') . '");</script>';
         }

@@ -76,7 +76,7 @@
                                                 if($task_lst->taskStatus == 1)
                                                 {
                                               ?>
-                                              <a href="<?=base_url('Task/edit/');?><?=$task_lst->taskId?>"><button
+                                              <a href="<?=base_url('Task/toggle_status/');?><?=$task_lst->taskId?>"><button
                                                       class="btn btn-primary"><i
                                                           class="fas fa-thumbs-up"></i></button></a>
                                               <?php
@@ -84,7 +84,7 @@
                                                 else
                                                 {
                                               ?>
-                                              <a href="<?=base_url('Task/delete/');?><?=$task_lst->taskId?>"><button
+                                              <a href="<?=base_url('Task/toggle_status/');?><?=$task_lst->taskId?>"><button
                                                       class="btn btn-danger"><i
                                                           class="fas fa-thumbs-down"></i></button></a>
                                               <?php
