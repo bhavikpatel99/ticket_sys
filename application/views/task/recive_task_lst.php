@@ -84,9 +84,8 @@
                                                 else
                                                 {
                                               ?>
-                                              <a href="<?=base_url('Task/toggle_status/');?><?=$task_lst->taskId?>"><button
-                                                      class="btn btn-danger"><i
-                                                          class="fas fa-thumbs-down"></i></button></a>
+                                              <button type="dissable" class="btn btn-primary"><i
+                                                      class="fas fa-thumbs-up"></i></button>
                                               <?php
                                               }
                                               ?>

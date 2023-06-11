@@ -102,7 +102,7 @@ class Task extends CI_Controller {
 	{
 		$data['title'] = 'Edit Task';
 		$id = $this->uri->segment(3);
-		$data['taskinfo'] = $this->Task_m->get_recive_task_id($id);
+		$data['taskinfo'] = $this->Task_m->get_task_by_id($id);
 		$this->load->view('template/header',$data);
 		$this->load->view('task/edit',$data,$id);
 		$this->load->view('template/footer');

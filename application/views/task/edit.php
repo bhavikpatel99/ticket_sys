@@ -35,7 +35,7 @@
                               <label>Employee Name</label>
                               <select class="form-control select2" name="txtemp" id="txtemp" style="width: 100%;"
                                   disabled>
-                                  <option value="<?=$taskinfo->empId?>"><?=$taskinfo->empName?></option>
+                                  <option value="<?=$taskinfo->userId?>"><?=$taskinfo->empName?></option>
                               </select>
                           </div>
                           <div class="form-group col-sm-6">

@@ -22,6 +22,15 @@ class Task_m extends CI_Model
          $quary = $this->db->get();
          return $quary->result();
      }
+    //  get task by id for edit
+    public function get_task_by_id($id)
+    {
+        $this->db->from('tbltask t');
+        $this->db->join('tbluser b','b.userId=t.assign_To');
+        $this->db->where('t.taskId', $id);
+        $quary = $this->db->get();
+        return $quary->result();
+    }
      // Select Send Task
      function get_send_task_id($id){
         $query = $this->db->select('t.*,b.empName')

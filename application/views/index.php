@@ -110,6 +110,7 @@
                                       <thead>
                                           <tr>
                                               <th>Employee Name</th>
+                                              <th>Task Status</th>
                                               <th>Assign Task</th>
                                               <th>Assign Date</th>
                                               <th>Due Date</th>
@@ -123,13 +124,25 @@
                                             ?>
                                           <tr>
                                               <td><?=$task_lst->empName?></td>
+                                              <td> <?php   
+                                                if($task_lst->taskStatus == 1)
+                                                {
+                                              ?>
+                                                  <span class="text-red">Incomplete</span>
+                                                  <?php
+                                                }
+                                                else
+                                                {
+                                              ?>
+                                                  <span class="text-green">Complete</span>
+                                                  <?php
+                                              }
+                                              ?>
+                                              </td>
                                               <td><?=$task_lst->task?></td>
                                               <td><?=$task_lst->assignDate?></td>
                                               <td><?=$task_lst->dueDate?></td>
                                               <td>
-                                                  <a href="<?=base_url('Task/edit/');?><?=$task_lst->taskId?>"><button
-                                                          class="btn btn-warning"><i
-                                                              class="fas fa-edit"></i></button></a>&nbsp
                                                   <a href="<?=base_url('Task/delete/');?><?=$task_lst->taskId?>"><button
                                                           class="btn btn-danger"><i
                                                               class="fas fa-trash"></i></button></a>
