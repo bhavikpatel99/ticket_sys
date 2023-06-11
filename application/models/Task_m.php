@@ -59,20 +59,19 @@ class Task_m extends CI_Model
          return $result;
      }
     //  toggel status
-     function update_task_status($id, $status)
-     { 
-         $data = [
-             "taskStatus" => $status,
-         ];
-         $result = $this->db->where('taskId', $id)->update('tbltask', $data);
-         return $result;
-     }
-     
-     function get_task_status($id)
-     {
-         $task = $this->db->where('taskId', $id)->get('tbltask')->row();
-         return $task->taskStatus;
-     }
+    function update_task_status($id, $status)
+    { 
+        $data = [
+            "taskStatus" => $status,
+        ];
+        $this->db->where('taskId', $id)->update('tbltask', $data);
+    }
+    
+    function get_task_status($id)
+    {
+        $task = $this->db->where('taskId', $id)->get('tbltask')->row();
+        return $task->taskStatus;
+    }
      
 }
 ?>

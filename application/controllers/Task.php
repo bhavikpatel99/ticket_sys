@@ -116,10 +116,10 @@ class Task extends CI_Controller {
 	// toogal task status
 	public function toggle_status()
 	{
-		$id = $this->session->uid;
+		$id = $this->uri->segment(3);
 		$taskStatus = $this->Task_m->get_task_status($id);
 		$newStatus = ($taskStatus == 1) ? 0 : 1;
 		$this->Task_m->update_task_status($id, $newStatus);
-		redirect('task/recive_task');
+		redirect('Task/recive_task');
 	}
 }
