@@ -21,7 +21,7 @@ class Home extends CI_Controller {
 		{
 			$data['title'] = 'Welcome to Hemratna Jewellers';
 			$data['task_lst'] = $this->Home_m->get_task();
-			$this->load->view('template/header');
+			$this->load->view('template/header',$data);
 			$this->load->view('index',$data);
 			$this->load->view('template/footer');
 		}
