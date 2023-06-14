@@ -143,7 +143,7 @@
                                               <td><?=$task_lst->assignDate?></td>
                                               <td><?=$task_lst->dueDate?></td>
                                               <td>
-                                                  <a href="<?=base_url('Task/delete/');?><?=$task_lst->taskId?>"><button
+                                                  <a href="<?=base_url('Home/delete/');?><?=$task_lst->taskId?>"><button
                                                           class="btn btn-danger"><i
                                                               class="fas fa-trash"></i></button></a>
                                               </td>

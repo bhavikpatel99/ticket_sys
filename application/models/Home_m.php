@@ -37,5 +37,28 @@ class Home_m extends CI_Model
          $result = $this->db->where('userId',$id)->update('tbluser',$data);
          return $result;
      }
+      // Function to get all task list
+      public function get_task()
+      {
+          $this->db->from('tbltask t');
+          $this->db->join('tbluser b','b.userId=t.assign_To');
+          $quary = $this->db->get();
+          return $quary->result();
+      }
+        //  get task by id for edit
+    public function get_task_by_id($id)
+    {
+        $this->db->from('tbltask t');
+        $this->db->join('tbluser b','b.userId=t.assign_To');
+        $this->db->where('t.taskId', $id);
+        $quary = $this->db->get();
+        return $quary->result();
+    }
+      // Delete Task
+      function delete_task($id){
+        $this->db->where('taskId',$id);
+        $this->db->delete('tbltask');
+        
+    }
 }
 ?>

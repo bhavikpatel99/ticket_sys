@@ -36,8 +36,7 @@ class Task_m extends CI_Model
         $query = $this->db->select('t.*,b.empName')
                       ->from('tbltask t')
                       ->join('tbluser b', 'b.userId = t.assign_To')
-                      ->where('t.assign_By', $id)
-                      ->or_where('t.entry_By', $id)
+                      ->where('t.entry_By', $id)
                       ->get();
     return $query->result();
      }
@@ -47,7 +46,6 @@ class Task_m extends CI_Model
                       ->from('tbltask t')
                       ->join('tbluser b', 'b.userId = t.assign_To')
                       ->where('t.assign_To', $id)
-                      ->or_where('t.entry_By', $id)
                       ->get();
     return $query->result();
      }

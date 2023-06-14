@@ -87,7 +87,7 @@ class Task extends CI_Controller {
 	// Function to Fetch selected record from database.
 	function show_task_id() {
 		$id = $this->uri->segment(3);
-		$data['single_task'] = $this->Task_m->show_task_id($id);
+		$data['single_task'] = $this->Task_m->get_task_by_id($id);
 		$this->load->view('task/list', $data);
 	}
 	// Delete User
@@ -95,6 +95,7 @@ class Task extends CI_Controller {
 	{
 		$this->show_task_id($id);
 		$this->Task_m->delete_task($id);
+		$this->session->set_flashdata('alert', 'Task Deleted');
 		redirect('Task');
 	}
 	// edit
