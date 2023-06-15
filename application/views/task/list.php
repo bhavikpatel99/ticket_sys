@@ -85,7 +85,8 @@
                       <div class="row">
                           <div class="form-group col-sm-3">
                               <label>Assign Date</label>
-                              <input type="date" class="form-control" name="txtassigndate" required />
+                              <input type="date" class="form-control" name="txtassigndate"
+                                  value="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" />
                           </div>
                           <div class="form-group col-sm-3">
                               <label>Due Date</label>

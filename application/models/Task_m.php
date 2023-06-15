@@ -33,19 +33,21 @@ class Task_m extends CI_Model
     }
      // Select Send Task
      function get_send_task_id($id){
-        $query = $this->db->select('t.*,b.empName')
+        $query = $this->db->select('t.*, b.empName')
                       ->from('tbltask t')
                       ->join('tbluser b', 'b.userId = t.assign_To')
                       ->where('t.entry_By', $id)
+                      ->order_by('t.taskId', 'desc') // Enclose 'desc' in quotes
                       ->get();
-    return $query->result();
-     }
+        return $query->result();
+    }    
      // Select Recive Task
     function get_recive_task_id($id){
         $query = $this->db->select('t.*,b.empName')
                       ->from('tbltask t')
                       ->join('tbluser b', 'b.userId = t.assign_To')
                       ->where('t.assign_To', $id)
+                      ->order_by('t.taskId', 'desc')
                       ->get();
     return $query->result();
      }

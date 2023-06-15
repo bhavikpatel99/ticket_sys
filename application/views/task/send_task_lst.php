@@ -46,6 +46,7 @@
                                           <th>Task</th>
                                           <th>Due Date</th>
                                           <th>Assign Date</th>
+                                          <th>Task Status</th>
                                           <th>Tools</th>
                                       </tr>
                                   </thead>
@@ -58,8 +59,23 @@
                                           <td><?=$counter?></td>
                                           <td><?=$task_lst->empName?></td>
                                           <td><?=$task_lst->task?></td>
-                                          <td><?=$task_lst->dueDate?></td>
-                                          <td><?=$task_lst->assignDate?></td>
+                                          <td><?=date('d-m-Y', strtotime($task_lst->dueDate))?></td>
+                                          <td><?=date('d-m-Y', strtotime($task_lst->assignDate))?></td>
+                                          <td><?php   
+                                                if($task_lst->taskStatus == 1)
+                                                {
+                                              ?>
+                                              <span class="text-red">Incomplete</span>
+                                              <?php
+                                                }
+                                                else
+                                                {
+                                              ?>
+                                              <span class="text-green">Complete</span>
+                                              <?php
+                                              }
+                                              ?>
+                                          </td>
                                           <td>
                                               <a href="<?=base_url('Task/edit/');?><?=$task_lst->taskId?>"><button
                                                       class="btn btn-warning"><i

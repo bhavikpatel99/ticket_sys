@@ -110,8 +110,8 @@
                                       <thead>
                                           <tr>
                                               <th>Employee Name</th>
-                                              <th>Task Status</th>
                                               <th>Assign Task</th>
+                                              <th>Task Status</th>
                                               <th>Assign Date</th>
                                               <th>Due Date</th>
                                               <th>Tools</th>
@@ -124,7 +124,8 @@
                                             ?>
                                           <tr>
                                               <td><?=$task_lst->empName?></td>
-                                              <td> <?php   
+                                              <td><?=$task_lst->task?></td>
+                                              <td><?php   
                                                 if($task_lst->taskStatus == 1)
                                                 {
                                               ?>
@@ -139,7 +140,6 @@
                                               }
                                               ?>
                                               </td>
-                                              <td><?=$task_lst->task?></td>
                                               <td><?=$task_lst->assignDate?></td>
                                               <td><?=$task_lst->dueDate?></td>
                                               <td>
