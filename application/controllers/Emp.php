@@ -70,7 +70,7 @@ class Emp extends CI_Controller {
 	  function show_user_id() {
 		  $id = $this->uri->segment(3);
 		  $data['single_user'] = $this->Emp_m->show_user_id($id);
-		  $this->load->view('Emp/list', $data);
+		//$this->load->view('Emp/list', $data);
 	  }
 	  // Delete User
 	  public function delete($id)
