@@ -13,7 +13,7 @@ class Emp extends CI_Controller {
 	
 	public function index()
 	{
-		if(is_null($this->session->uid))
+		if(!isset($this->session->uid) || empty($this->session->uid))
 		{
 			redirect('Login');
 		}
@@ -21,8 +21,8 @@ class Emp extends CI_Controller {
 		{
 			$data['title'] = 'Hemratna Jewellers || Employee';
 			$data['emp_lst'] = $this->Emp_m->get_emp();
-			$this->load->view('template/header',$data);
-			$this->load->view('emp/list',$data);
+			$this->load->view('template/header', $data);
+			$this->load->view('emp/list', $data);
 			$this->load->view('template/footer');
 		}
 	}
