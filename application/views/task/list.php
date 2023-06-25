@@ -85,13 +85,28 @@
                       <div class="row">
                           <div class="form-group col-sm-3">
                               <label>Assign Date</label>
-                              <input type="date" class="form-control" name="txtassigndate"
-                                  value="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" />
+                              <input type="date" class="form-control" name="txtassigndate" id="txtassigndate" />
                           </div>
+                          <script>
+                          // Get the current date
+                          var currentDate = new Date().toISOString().split('T')[0];
+
+                          // Set the value attribute of the input field to the current date
+                          document.getElementById("txtassigndate").value = currentDate;
+                          document.getElementById("txtassigndate").setAttribute("min", currentDate);
+                          </script>
+
                           <div class="form-group col-sm-3">
                               <label>Due Date</label>
-                              <input type="date" class="form-control" name="txtduedate" required>
+                              <input type="date" class="form-control" name="txtduedate" id="txtduedate" required>
                           </div>
+                          <script>
+                          // Get the current date
+                          var currentDate = new Date().toISOString().split('T')[0];
+
+                          // Set the minimum attribute of the input field to the current date
+                          document.getElementById("txtduedate").setAttribute("min", currentDate);
+                          </script>
                       </div>
                       <button class="btn btn-primary col-sm-3">
                           <i class="fas fa-tasks"></i> Assign
